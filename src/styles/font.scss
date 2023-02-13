@@ -1,0 +1,48 @@
+
+@import "./theme/_theme.scss";
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700&display=swap');
+
+h1, h2, h3, h4, h5 {
+	@include themed() {
+		color: t('text-primary');
+	}
+	font-weight: 400;
+	line-height: 1;
+
+
+	svg {
+		font-size: 20px !important;
+	}
+}
+
+h1 {
+	font-size: 40px;
+}
+
+h2 {
+	font-size: 32px;
+}
+
+h3 {
+	font-size: 27px;
+}
+
+h4 {
+	font-size: 24px;
+}
+
+h5 {
+	font-size: 20px;
+}
+
+p {
+	font-size: 12px;
+}
+
+div, span {
+	font-size: 20px;
+}
+
+a {
+	text-decoration: none;
+}

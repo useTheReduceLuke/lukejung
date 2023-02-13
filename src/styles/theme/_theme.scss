@@ -1,0 +1,67 @@
+@import 'theme-constants';
+@import '../colors';
+
+//shortcuts
+$bg: 'bg';
+$card-bg: 'card-bg';
+$navbar-bg: 'navbar-bg';
+$card-border: 'card-border';
+$text: 'text';
+$text-primary: 'text-primary';
+$text-sidenav: 'text-sidenav';
+$border: 'border';
+
+//themes
+$themes: (
+		day: (
+				bg: $bg--light,
+				bg-secondary: $light-gray-purple,
+				card-bg: $bg--card--light,
+				navbar-bg: $bg--navbar--light,
+				card-border: $card-border--light,
+				text: $text--light,
+				text-primary: $text--imp--light,
+				text-sidenav: $text--2--light,
+				border: $border--light
+		),
+		night: (
+				bg: $bg--dark,
+				bg-secondary: $dusk,
+				card-bg: $bg--card--dark,
+				navbar-bg: $bg--navbar--dark,
+				card-border: $card-border--dark,
+				text: $text--dark,
+				text-primary: $text--imp--dark,
+				text-sidenav: $text--2--dark,
+				border: $border--dark
+		),
+		experimental: (
+				bg: radial-gradient(circle farthest-corner at bottom right, #999, #413741),
+				bg-secondary: #ff00ff,
+				card-bg: $bg--card--dark,
+				navbar-bg: $bg--navbar--dark,
+				card-border: $card-border--dark,
+				text: $text--dark,
+				text-primary: $text--imp--dark,
+				text-sidenav: $text--2--dark,
+				border: $border--dark
+		),
+);
+
+@mixin themed() {
+	@each $theme, $map in $themes {
+		.theme--#{$theme} & {
+			$theme-map: () !global;
+			@each $key, $submap in $map {
+				$value: map-get(map-get($themes, $theme), '#{$key}');
+				$theme-map: map-merge($theme-map, ($key: $value)) !global;
+			}
+			@content;
+			$theme-map: null !global;
+		}
+	}
+}
+
+@function t($key) {
+	@return map-get($theme-map, $key);
+}

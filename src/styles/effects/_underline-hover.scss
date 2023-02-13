@@ -1,0 +1,52 @@
+@import "../theme/theme";
+
+a {
+	@include themed() {
+		color: t('text-primary');
+	}
+	text-transform: uppercase;
+	text-decoration: none;
+	letter-spacing: 0.1rem;
+
+	display: inline-block;
+	padding: 1rem 0;
+	position: relative;
+
+	* {
+		transition: font-weight, letter-spacing 0.1s ease;
+	}
+
+	&.active {
+		&:after {
+			width: 100%;
+			left: 0;
+			@include themed() {
+				background: t('text-sidenav');
+			}
+		}
+		* {
+			font-weight: bold;
+			letter-spacing: 0.3rem;
+		}
+	}
+}
+
+a:after {
+	@include themed() {
+		background: t('text-sidenav');
+	}
+	background: none repeat scroll 0 0 transparent;
+	bottom: 0;
+	content: "";
+	display: block;
+	height: 2px;
+	left: 100%;
+	position: relative;
+	transition: width 0.3s ease 0s, left 0.3s ease 0s;
+	width: 0;
+}
+
+a:hover:after {
+	width: 100%;
+	left: 0;
+}

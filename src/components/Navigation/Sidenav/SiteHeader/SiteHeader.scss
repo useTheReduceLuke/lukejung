@@ -1,0 +1,18 @@
+@import '../../../../App';
+
+.website-title {
+	display: flex;
+	justify-content: center;
+}
+
+.first-name {
+	@include themed() {
+		color: t('bg');
+	}
+}
+
+.last-name {
+	@include themed() {
+		color: t('text-sidenav');
+	}
+}

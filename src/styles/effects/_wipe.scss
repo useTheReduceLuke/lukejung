@@ -1,0 +1,65 @@
+
+
+.wipe-container {
+	display: flex;
+	align-items: center;
+	margin-top: 2rem;
+	cursor: pointer;
+
+	&:hover {
+		.wipe:after {
+			width: 100%;
+			height: 100%;
+		}
+	}
+}
+
+
+.wipe {
+	position: relative;
+	display: inline-block;
+	float: left;
+	width: 6px;
+	height: 8rem;
+	padding: 0;
+	transition: all 0.5s;
+	transform: skew(-15deg);
+	margin: 0 2rem 0 0;
+
+	&:after {
+		position: absolute;
+		z-index: 9;
+		content: '';
+		transition: all 0.25s;
+	}
+
+	&.wipe-down,
+	&.wipe-up {
+		&:after {
+			left: 0;
+			width: 100%;
+			height: 0;
+		}
+	}
+
+	&.wipe-down {
+		background-color: transparent;
+		&:after {
+			top: 0;
+			background-color: white;
+		}
+	}
+
+	&.wipe-up {
+		background-color: transparent;
+		&:after {
+			bottom: 0;
+			background-color: white;
+		}
+	}
+
+	&:hover:after {
+		width: 100%;
+		height: 100%;
+	}
+}

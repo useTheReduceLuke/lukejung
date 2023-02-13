@@ -1,0 +1,35 @@
+@import '../../../styles/shapes';
+@import '../../../styles/theme/theme';
+@import '../../../styles/theme/theme-constants';
+@import '../../../styles/include-media';
+
+.sidenav {
+	@include media("<=phone") {
+		position: absolute;
+	}
+	@include themed() {
+		background-color: t('text');
+	}
+	padding: $section-padding;
+	height: calc(100% - 2 * $section-padding);
+	width: $title-block-width;
+	position: relative;
+	z-index: $elev-1;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.dark-button {
+	@extend .circle;
+	@include themed() {
+		background-color: t('bg');
+		color: t('text');
+	}
+	border: none;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	font-size: 3rem;
+}

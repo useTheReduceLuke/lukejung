@@ -1,0 +1,30 @@
+
+@import '../../App';
+
+$red-text: #ff4f4f;
+
+.list-item {
+	font-size: 3rem;
+	padding-bottom: 2rem;
+
+	&:first-letter {
+		text-transform: capitalize;
+	}
+}
+
+.list {
+	padding: 4rem;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+}
+
+.separator {
+	border-bottom: solid 1px $red-text;
+	width: 60%;
+	color: $red-text;
+	display: flex;
+	flex-direction: column;
+	margin: 8px 20%;
+}
