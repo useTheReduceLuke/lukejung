@@ -5,7 +5,18 @@
 
 .sidenav {
 	@include media("<=phone") {
+		display: flex;
+		align-items: flex-end;
+		gap: 1rem;
+
 		position: absolute;
+		z-index: 3;
+		bottom: 0;
+		right: 0;
+
+		height: min-content;
+		width: min-content;
+		border-top-left-radius: 4px;
 	}
 	@include themed() {
 		background-color: t('text');

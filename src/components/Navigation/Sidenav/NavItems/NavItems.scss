@@ -1,9 +1,13 @@
 
 //@import '../../../../pages/App';
 @import "../../../../styles/theme/theme";
+@import "../../../../styles/include-media";
 
 .nav-links {
 	padding-top: 5rem;
+	@include media("<=phone") {
+		padding-top: 0;
+	}
 	gap: 1rem;
 	display: flex;
 	flex-direction: column;

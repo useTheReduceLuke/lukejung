@@ -48,7 +48,7 @@ const navItems: NavItemClass[] = [
     },
 ];
 
-const Sidenav = () => {
+const Sidenav = ( { theme, changeTheme }: {theme: any, changeTheme: any} ) => {
 
     const location = useLocation();
     // useEffect( () => {
@@ -77,6 +77,8 @@ const Sidenav = () => {
         setActivePage( active );
     }, [ location ] );
 
+    const themeIcon = theme.icon;
+
     return (
         <div className={"sidenav"}>
             <div>
@@ -85,6 +87,9 @@ const Sidenav = () => {
                 </BrowserView>
                 <NavItems navItems={Object.values( navItems )} activePage={activePage} />
             </div>
+            <button className={"dark-button"} onClick={changeTheme}>
+                <i className={`fa-solid fa-${ themeIcon }`}></i>
+            </button>
         </div>
     // <div className={"sidenav"} {...handlers} style={menuPosition}>
     // 	<div className={"icon-container"} onClick={() => setOpen(!open)}>

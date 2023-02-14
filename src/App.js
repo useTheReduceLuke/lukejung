@@ -5,6 +5,19 @@ import { BrowserRouter } from "react-router-dom";
 
 const App = () => {
 
+    useEffect( () => {
+        const script = document.createElement( 'script' );
+
+        script.src = "https://kit.fontawesome.com/0cb5558475.js";
+        script.async = true;
+
+        document.body.appendChild( script );
+
+        return () => {
+            document.body.removeChild( script );
+        };
+    }, [] );
+
     const [ history, setHistory ] = useState( [] );
 
     useEffect( () => {

@@ -9,22 +9,20 @@ import { useWindowSize } from "../tools/WindowDimensions";
 const themeOptions = [
     { name: "day", icon: "sun" },
     { name: "night", icon: "moon" },
-    { name: "experimental", icon: "flask" },
+    // { name: "experimental", icon: "flask" },
 ];
 
 const Layout = () => {
 
-    const [ theme, setTheme ] = useState( themeOptions[ 0 ] );
     const [ initialWidth, initialHeight ] = useWindowSize();
     const [ pageSize, setPageSize ] = useState( { width: initialWidth, height: initialHeight } );
+    const [ theme, setTheme ] = useState( themeOptions[ 0 ] );
 
     const changeTheme = () => {
-        const themeInd = themeOptions.findIndex( x => x.name.localeCompare( theme.name ) ) ?? 0;
-        const newThemeInd = themeInd >= themeOptions.length ? 0 : themeInd + 1;
-        setTheme( themeOptions[ newThemeInd ] );
+        const themeInd = themeOptions.findIndex( x => x.name === theme.name ) ?? 0;
+        const newTheme = themeOptions[ themeInd + 1 ] ?? themeOptions[ 0 ];
+        setTheme( newTheme );
     };
-
-    const themeIcon = theme.icon;
 
     useEffect( () => {
 
@@ -40,13 +38,10 @@ const Layout = () => {
     return (
         <div className={"theme theme--" + theme.name}>
             <div className={"page-container"}>
-                <Sidenav/>
+                <Sidenav changeTheme={changeTheme} theme={theme}/>
                 <div className={"page-container-right"}>
                     <Router/>
                 </div>
-                <button className={"dark-button"} onClick={changeTheme}>
-                    <i className={`fa-solid fa-${ themeIcon }`}></i>
-                </button>
             </div>
         </div>
     );
