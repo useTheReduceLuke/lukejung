@@ -2,9 +2,13 @@
 
 // LUKE NOTE: GARBAGE THESE ARE GARBAGE: MAKE THEM FLEX
 .circle {
-	width: 5rem;
-	height: 5rem;
+	width: 4rem;
+	height: 4rem;
 	border-radius: 100%;
+
+	.fa-solid {
+		font-size: 20px;
+	}
 }
 
 @mixin bubble($radius) {

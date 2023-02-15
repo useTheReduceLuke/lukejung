@@ -7,7 +7,7 @@
 
 .first-name {
 	@include themed() {
-		color: t('bg');
+		color: t('text');
 	}
 }
 

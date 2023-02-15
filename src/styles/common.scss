@@ -14,8 +14,8 @@
 
 .page-container {
 	@include themed() {
-		background: t('bg');
 		color: t('text');
+		background: t('bg');
 	}
 	animation: gradient 15s ease infinite;
 	width: 100%;
@@ -25,6 +25,9 @@
 	position: relative;
 
 	.page-container-right {
+		@include themed() {
+			color: t('text');
+		}
 		padding: $section-padding;
 		position: relative;
 		right: 0;

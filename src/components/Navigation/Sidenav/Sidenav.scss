@@ -19,13 +19,15 @@
 		border-top-left-radius: 4px;
 	}
 	@include themed() {
-		background-color: t('text');
+		background-color: t('bg');
+		border-right: solid 2px t('text');
 	}
-	padding: $section-padding;
-	height: calc(100% - 2 * $section-padding);
+	padding: 0 $section-padding;
+	margin: $navbar-padding 0;
+	height: calc(100% - 2 * $navbar-padding);
 	width: $title-block-width;
 	position: relative;
-	z-index: $elev-1;
+	z-index: $elev-3;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
@@ -34,10 +36,11 @@
 .dark-button {
 	@extend .circle;
 	@include themed() {
-		background-color: t('bg');
+		border-color: t('text');
 		color: t('text');
 	}
-	border: none;
+	background-color: transparent;
+	border: solid 2px;
 	display: flex;
 	align-items: center;
 	justify-content: center;

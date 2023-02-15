@@ -2,7 +2,7 @@
 
 a {
 	@include themed() {
-		color: t('text-primary');
+		color: t('text');
 	}
 	text-transform: uppercase;
 	text-decoration: none;
@@ -21,7 +21,7 @@ a {
 			width: 100%;
 			left: 0;
 			@include themed() {
-				background: t('text-sidenav');
+				background: t('text');
 			}
 		}
 		* {
@@ -33,7 +33,7 @@ a {
 
 a:after {
 	@include themed() {
-		background: t('text-sidenav');
+		background: t('text');
 	}
 	background: none repeat scroll 0 0 transparent;
 	bottom: 0;

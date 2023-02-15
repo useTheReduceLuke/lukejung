@@ -19,16 +19,5 @@
 		align-content: center;
 		margin: 1rem 0;
 		gap: 2rem;
-
-		@include themed() {
-			color: t('bg');
-		}
-
-		.active {
-			text-decoration: underline;
-			@include themed() {
-				color: t('text-sidenav');
-			}
-		}
 	}
 }

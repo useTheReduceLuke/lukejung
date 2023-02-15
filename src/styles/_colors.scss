@@ -4,26 +4,22 @@ $light-gray-purple: #CAB3DE;
 $dawn:  #C05536;
 $dusk:  #6E230D;
 
+$lighter-purple: #D9CAF0;
+$light-purple: #A694C6;
+$dark-purple: #88459E;
+$darker-purple: #1D0D28;
+
+$lighter-green: #287C33;
+$light-green: #002100;
+$dark-green: #DCEACE;
+$darker-green: #4A9C43;
 
 //--colors
-$brand--primary--light: #b45139;
-$brand--primary--dark: lighten($brand--primary--light, 10%);
-$brand--secondary--light: $brand--primary--light;
-$brand--secondary--dark: $brand--primary--dark;
-//$brand--secondary--light: #4376A3;
-//$brand--secondary--dark: lighten($brand--secondary--light, 18%);
 
-$bg--red: lighten($brand--primary--light, 40%);
-$bg--blue: lighten($brand--secondary--light, 40%);
 $bg--light: #FFF;
 $bg--dark: #000;
-$bg--navbar--dark: #112d32;
-$bg--navbar--light: #88bdbc;
 $bg--card--light: #dbdbdb;
 $bg--card--dark: #000;
-
-$card-border--light: 0px solid transparent;
-$card-border--dark: 1px solid #ff00ff;
 
 $text--imp--light: #242D30;
 $text--imp--dark: #E8E4E0;
@@ -31,13 +27,6 @@ $text--light: #0a0a0a;
 $text--dark: #f1f1f1;
 $text--2--light: #F43F5E;
 $text--2--dark: #F43F5E;
-$text--3--light: lighten($text--light, 20%);
-$text--3--dark: darken($text--dark, 20%);
 
-$border--light: darken($bg--card--light, 10%);
-$border--dark: #ff00ff10;
-
-$hover--light: transparentize($brand--secondary--light, .9);
-$hover--dark: transparentize(#fff, .9);
-
-$highlight-color: transparentize($brand--secondary--light, .1);
+$bg-gradient-light:  linear-gradient(-75deg, $lighter-purple, $light-purple);
+$bg-gradient-dark:  linear-gradient(-75deg, $dark-purple, $darker-purple);
