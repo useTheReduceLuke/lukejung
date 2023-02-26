@@ -5,17 +5,13 @@ import "./Button.scss";
 
 // type ButtonSize = "small" | "large";
 
-const makeButtonClass = ( inSpecs: Array<any> = [] ) => {
-    return inSpecs.join( " " );
-};
+const makeButtonClass = ( inClass: string ) => "Lui-Button-" + inClass;
 
-const Button = ( inSpec: any ) => {
+const Button = ( { children, type }: { children: any, type: string } ) => {
 
-    const specs = Object.values( inSpec );
+    const buttonClass = makeButtonClass( type );
 
-    const buttonClass = makeButtonClass( specs );
-
-    return <ButtonUnstyled className={buttonClass}>Test</ButtonUnstyled>;
+    return <ButtonUnstyled className={buttonClass}>{ children }</ButtonUnstyled>;
 };
 
 export default Button;

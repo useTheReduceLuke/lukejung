@@ -23,6 +23,7 @@
 		"@typescript-eslint"
 	],
 	"rules": {
+		"react/prop-types": 0,
 		"import/no-unresolved": "error",
 		"@typescript-eslint/ban-ts-comment": "off",
 		"comma-dangle": [
@@ -134,7 +135,7 @@
 		"no-undefined": 2,
 		"no-use-before-define": 2,
 		"no-unused-vars": [
-			2,
+			1,
 			{
 				"vars": "local",
 				"args": "after-used"
@@ -197,10 +198,7 @@
 			"error",
 			"always"
 		],
-		"space-in-parens": [
-			"error",
-			"always"
-		],
+		"space-in-parens": 1,
 		"func-call-spacing": [
 			"error",
 			"never"

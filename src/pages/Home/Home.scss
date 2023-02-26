@@ -1,9 +1,7 @@
 
-@import "../../styles/effects/underline-hover";
-
 .content {
 	display: flex;
-	align-items: center;
+	align-items: flex-start;
 	flex-direction: column;
 	gap: 2rem;
 }

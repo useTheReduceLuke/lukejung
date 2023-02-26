@@ -4,33 +4,78 @@
 @import '../../../styles/include-media';
 
 .sidenav {
-	@include media("<=phone") {
-		display: flex;
-		align-items: flex-end;
-		gap: 1rem;
 
-		position: absolute;
-		z-index: 3;
-		bottom: 0;
-		right: 0;
-
-		height: min-content;
-		width: min-content;
-		border-top-left-radius: 4px;
-	}
-	@include themed() {
-		background-color: t('bg');
-		border-right: solid 2px t('text');
-	}
-	padding: 0 $section-padding;
+	box-sizing: border-box;
+	padding: 0 $navbar-padding;
 	margin: $navbar-padding 0;
-	height: calc(100% - 2 * $navbar-padding);
+	height: stretch;
 	width: $title-block-width;
 	position: relative;
 	z-index: $elev-3;
 	display: flex;
 	flex-direction: column;
-	justify-content: space-between;
+	justify-content: flex-start;
+	align-items: flex-end;
+	gap: 2rem;
+
+	@include themed() {
+		background-color: t('bg');
+		border-right: solid 2px t('text');
+	}
+
+	@include media("<=desktop") {
+
+		@include themed() {
+			background: t('bg-inverse-opacity');
+			border-right: none;
+		}
+
+		display: flex;
+		align-items: flex-end;
+		justify-content: flex-end;
+		gap: 2rem;
+		margin: 0;
+		padding: 2rem;
+		border: none !important;
+
+		width: 30rem;
+		height: min-content;
+		position: absolute;
+		bottom: 0;
+		right: 0;
+
+		border-top-left-radius: 4px;
+		transition: background-color 0.2s cubic-bezier( 0.3, 0.95, 0.5, 1.0);
+
+		.nav-items {
+			transition: opacity 0.2s cubic-bezier( 0.3, 0.95, 0.5, 1.0);
+		}
+
+		&.collapsed {
+			background-color: transparent;
+			backdrop-filter: blur(0px);
+
+			.nav-items {
+				opacity: 0;
+				pointer-events: none;
+			}
+		}
+	}
+
+	.nav-items {
+		display: flex;
+		transition: 0.3s ease;
+		flex-direction: column;
+	}
+}
+
+.nav-actions {
+	display: none;
+	padding: 1rem;
+
+	@include media("<=desktop") {
+		display: flex;
+	}
 }
 
 .dark-button {
@@ -39,6 +84,7 @@
 		border-color: t('text');
 		color: t('text');
 	}
+
 	background-color: transparent;
 	border: solid 2px;
 	display: flex;

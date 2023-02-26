@@ -1,104 +1,64 @@
 import "./Sidenav.scss";
 import * as React from "react";
 import { useEffect, useState } from "react";
-// import { useSwipeable } from "react-swipeable";
-// import $ from "jquery";
 import SiteHeader from "./SiteHeader/SiteHeader";
 import NavItems from "./NavItems/NavItems";
-import { BrowserView } from 'react-device-detect';
-// const defaultMenuPosition = {
-//     right:  0,
-//     bottom: 0,
-// };
-
-// let menuPosition = defaultMenuPosition;
-import CottageIcon from '@mui/icons-material/Cottage';
-import EngineeringIcon from '@mui/icons-material/Engineering';
-import CssIcon from '@mui/icons-material/Css';
-import ContactPageOutlinedIcon from '@mui/icons-material/ContactPageOutlined';
-import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
 import { NavItemClass } from "./NavItems/NavItem";
 import { useLocation } from "react-router-dom";
+import { useStateStore } from "../../../shared/services/state.store";
 
 const navItems: NavItemClass[] = [
     {
         link:  "/",
         title: "Home",
-        icon:  <CottageIcon/>,
+        icon:  "fa-solid fa-house-chimney",
     },
     {
         link:  "/about",
         title: "About",
-        icon:  <EngineeringIcon/>,
-    },
-    {
-        link:  "/skills",
-        title: "Skills",
-        icon:  <CssIcon/>,
+        icon:  "fa-regular fa-address-card",
     },
     {
         link:  "/portfolio",
         title: "Portfolio",
-        icon:  <ContactPageOutlinedIcon/>,
+        icon:  "fa-regular fa-address-book",
     },
     {
         link:  "/contact",
         title: "Contact",
-        icon:  <EmailOutlinedIcon/>,
+        icon:  "fa-regular fa-envelope",
     },
 ];
 
-const Sidenav = ( { theme, changeTheme }: {theme: any, changeTheme: any} ) => {
+const Sidenav = () => {
 
     const location = useLocation();
-    // useEffect( () => {
-    //     const menuItems = $( "#nav" );
-    //
-    //     open
-    //         ? ( menuPosition = defaultMenuPosition )
-    //         : ( menuPosition = {
-    //             right:  -menuItems.width(),
-    //             bottom: -menuItems.height(),
-    //         } );
-    // }, [ open ] );
+    const [ activePage, setActivePage ] = useState(0);
 
-    // const handlers = useSwipeable( {
-    //     onSwiped: eventData => {
-    //         console.log( eventData.dir === "Down" || eventData.dir === "Right" );
-    //         console.log( menuPosition );
-    //         setOpen( eventData.dir === "Down" || eventData.dir === "Right" );
-    //     },
-    // } );
-    const [ activePage, setActivePage ] = useState( 0 );
+    // @ts-ignore
+    const toggleSidenav =
+        useStateStore((state) => state.toggleSidenav);
 
-    useEffect( () => {
-        const active = Object.values( navItems ).findIndex( x => x.link.toLocaleLowerCase()
-            .includes( location.pathname.toLocaleLowerCase() ) );
-        setActivePage( active );
-    }, [ location ] );
+    const sidenavState = useStateStore(state => state.sidenavExpanded);
 
-    const themeIcon = theme.icon;
+    useEffect(() => {
+        const active = Object.values(navItems).findIndex(x => x.link.toLocaleLowerCase()
+            .includes(location.pathname.toLocaleLowerCase()));
+        setActivePage(active);
+    }, [ location ]);
 
     return (
-        <div className={"sidenav"}>
-            <div>
-                <BrowserView>
-                    <SiteHeader/>
-                </BrowserView>
-                <NavItems navItems={Object.values( navItems )} activePage={activePage} />
+        <div className={`sidenav ${ sidenavState ? "expanded" : "collapsed" }`}>
+            <div className={"nav-items"} onClick={toggleSidenav}>
+                <SiteHeader headerClass={"desktop-header"}/>
+                <NavItems navItems={Object.values(navItems)} activePage={activePage} />
             </div>
-            <button className={"dark-button"} onClick={changeTheme}>
-                <i className={`fa-solid fa-${ themeIcon }`}></i>
-            </button>
+            <div className={"nav-actions"}>
+                <span className={`nav-toggle`} onClick={toggleSidenav}>
+                    <i className={`fa-solid fa-${ sidenavState ? "down-left-and-up-right-to-center" : "bars" }`}></i>
+                </span>
+            </div>
         </div>
-    // <div className={"sidenav"} {...handlers} style={menuPosition}>
-    // 	<div className={"icon-container"} onClick={() => setOpen(!open)}>
-    // 		<Menu sx={{ fontSize: 32, color: "#513e3e" }}/>
-    // 	</div>
-    // 	<nav id={"nav"}>
-    // 		<NavItems routes={routes}/>
-    // 	</nav>
-    // </div>
     );
 };
 

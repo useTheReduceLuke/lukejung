@@ -6,7 +6,7 @@ const Contact = () => (
     <div className={"list"}>
         <h1>Contact</h1>
         <Input></Input>
-        <Button>Test Button</Button>
+        <Button type={"back"}>Test Button</Button>
     </div>
 );
 

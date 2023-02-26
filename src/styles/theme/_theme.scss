@@ -3,48 +3,52 @@
 
 //shortcuts
 $bg: 'bg';
-$card-bg: 'card-bg';
 $navbar-bg: 'navbar-bg';
-$card-border: 'card-border';
+$bg-opacity: 'bg-opacity';
+$bg-gradient: 'card-bg-gradient';
 $text: 'text';
 $text-primary: 'text-primary';
 $text-sidenav: 'text-sidenav';
 $border: 'border';
 
+$bg--light: #FFF;
+$bg--dark: #000;
+$bg--light-opacity: #FFFFFF85;
+$bg--dark-opacity: #000000F5;
+
+$text--light: #0a0a0a;
+$text--dark: #f1f1f1;
+$text--sidenav-light: #F43F5E;
+$text--sidenav-dark: #F43F5E;
+$text--imp--light: #242D30;
+$text--imp--dark: #E8E4E0;
+$text--2--light: #F43F5E;
+$text--2--dark: #F43F5E;
+
+$bg-gradient-light:  linear-gradient(-75deg, $lighter-purple, $light-purple);
+$bg-gradient-dark:  linear-gradient(-75deg, $dark-purple, $darker-purple);
+
 //themes
 $themes: (
 		day: (
 				bg: $bg--light,
-				bg-secondary: $light-gray-purple,
-				card-bg: $bg--card--light,
-				navbar-bg: $bg--navbar--light,
-				card-border: $card-border--light,
+				bg-opacity: rgba($bg--light, 0.2),
+				bg-gradient: $bg-gradient-light,
+				bg-inverse: $bg--dark,
+				bg-inverse-opacity: rgba($bg--dark, 0.5),
 				text: $text--light,
 				text-primary: $text--imp--light,
 				text-sidenav: $text--2--light,
-				border: $border--light
 		),
 		night: (
 				bg: $bg--dark,
-				bg-secondary: $dusk,
-				card-bg: $bg--card--dark,
-				navbar-bg: $bg--navbar--dark,
-				card-border: $card-border--dark,
+				bg-opacity: rgba($bg--dark, 0.5),
+				bg-gradient: $bg-gradient-dark,
+				bg-inverse: $bg--light,
+				bg-inverse-opacity: rgba($bg--light, 0.2),
 				text: $text--dark,
 				text-primary: $text--imp--dark,
 				text-sidenav: $text--2--dark,
-				border: $border--dark
-		),
-		experimental: (
-				bg: radial-gradient(circle farthest-corner at bottom right, #999, #413741),
-				bg-secondary: #ff00ff,
-				card-bg: $bg--card--dark,
-				navbar-bg: $bg--navbar--dark,
-				card-border: $card-border--dark,
-				text: $text--dark,
-				text-primary: $text--imp--dark,
-				text-sidenav: $text--2--dark,
-				border: $border--dark
 		),
 );
 

@@ -12,7 +12,7 @@ const NavItem = ( { item, i, active }: { item: NavItemClass, i: number, active: 
     return (
         <Link to={item.link} className={active ? 'active' : ''} key={`navItem-${ i }`}>
             <h5 className={"nav-item"}>
-                {item.icon}
+                <i className={`${ item.icon }`}></i>
                 {item.title}
             </h5>
         </Link>

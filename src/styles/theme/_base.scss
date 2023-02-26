@@ -46,10 +46,16 @@ html, body {
 	}
 
 	a {
+		-webkit-tap-highlight-color: #a5234b63;
 		&:hover {
 			text-decoration: none;
 		}
 	}
+}
+
+div, button, span {
+	font-family: $font-family;
+	font-size: $font-size--base;
 }
 
 .theme {
@@ -78,13 +84,11 @@ html, body {
 	&__page {
 		margin: 0 auto;
 		min-height: 100vh;
-		margin-bottom: ($footer-height * -1);
 		padding: $spacer--default (120px) $spacer--large;
 
 		&:after {
 			content: "";
 			display: block;
-			height: $footer-height;
 		}
 
 		@media (max-width: $screen-md-max) {
@@ -138,7 +142,6 @@ html, body {
 }
 
 .img, .ril__image, .ril__imagePrev, .ril__imageNext {
-	background-color: $bg--card--light;
 
 	@include themed() {
 		border: 1px solid t($border);
@@ -152,8 +155,6 @@ html, body {
 
 	&--clickable {
 		cursor: pointer;
-
-		@extend %hover;
 	}
 }
 
@@ -174,7 +175,6 @@ html, body {
 
 .tableau-viz {
 	> div {
-		background-color: $bg--card--light;
 
 		@include themed() {
 			border: 1px solid t($border);
@@ -188,7 +188,6 @@ html, body {
 }
 
 .footer {
-	height: $footer-height;
 	font-size: $font-size--tertiary;
 	text-align: center;
 

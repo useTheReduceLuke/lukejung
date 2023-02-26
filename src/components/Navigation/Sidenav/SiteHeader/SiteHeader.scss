@@ -1,4 +1,11 @@
+@import '../../../../styles/theme/theme';
 @import '../../../../App';
+
+.site-header {
+	display: flex;
+	justify-content: center;
+	padding: 4rem 0;
+}
 
 .website-title {
 	display: flex;
@@ -14,5 +21,17 @@
 .last-name {
 	@include themed() {
 		color: t('text-sidenav');
+	}
+}
+
+.mobile-header {
+	@include media(">desktop") {
+		display: none;
+	}
+}
+
+.desktop-header {
+	@include media("<=desktop") {
+		display: none;
 	}
 }

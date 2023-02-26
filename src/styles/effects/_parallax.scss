@@ -1,0 +1,37 @@
+
+@import "../theme/theme";
+@import "../include-media";
+
+.parallax-container {
+	position: relative;
+	background-attachment: fixed;
+	background-position: center;
+	background-repeat: no-repeat;
+	@include media("<=desktop") {
+		background-size: cover;
+	}
+	background-size: contain;
+	height: 100%;
+	min-height: 100%;
+
+	.parallax-content {
+		position: absolute;
+		left: 0;
+		top: 50%;
+		padding: 2rem;
+		width: 100%;
+		text-align: center;
+
+		@include themed() {
+			background-color: t('bg-opacity');
+		}
+	}
+}
+
+.parallax-1 {
+	background-image: url("../../images/lukecoffee.webp");
+}
+
+.parallax-2 {
+	background-image: url("../../images/zuko.JPG");
+}
