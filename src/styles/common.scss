@@ -2,34 +2,46 @@
 @import 'theme/base';
 @import 'include-media';
 
-@import 'effects/wipe';
-@import 'effects/frosted';
-
-@import 'animations';
-@import 'colors';
-@import 'constants';
 @import 'font';
 @import 'mixins';
-@import 'shapes';
 
 .page {
 	width: 100%;
 	height: 100%;
 	display: flex;
 	justify-content: flex-start;
+	z-index: 1;
+}
+
+.image-container {
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	bottom: 0;
+	left: 0;
 
 	@include themed() {
-		background: t('bg');
+		background-color: t('bg');
 	}
 }
 
-.page-container {
-	animation: gradient 15s ease infinite;
+.image-fullsize {
+	background-image: url("../images/home.webp");
+	background-repeat: no-repeat;
+	background-size: cover;
+	opacity: 0.25;
 	width: 100%;
 	height: 100%;
-	overflow: hidden;
-	display: flex;
-	flex-direction: row;
+	background-position: center;
+}
+
+.page-container {
+	display: block;
+
+	@include media(">desktop") {
+		width: calc(100% - #{$title-block-width});
+		margin-left: $title-block-width;
+	}
 
 	@include themed() {
 		color: t('text');
@@ -38,27 +50,6 @@
 	@include media("<=desktop") {
 		flex-direction: column;
 		position: relative;
-	}
-
-	.page-container-right {
-		@include themed() {
-			color: t('text');
-		}
-		position: relative;
-		right: 0;
-		top: 0;
-		z-index: $elev-2;
-		height: 100%;
-		width: stretch;
-		display: flex;
-		align-items: center;
-		box-sizing: border-box;
-		justify-content: center;
-		overflow-y: auto;
-
-		@include media("<=desktop") {
-			flex-direction: column;
-		}
 	}
 }
 
@@ -69,4 +60,16 @@
 	}
 	font-size: 8rem;
 	padding-left: 1rem;
+}
+
+
+.full-image {
+	position: relative;
+	object-fit: cover;
+	height: 100%;
+	width: 100%;
+
+	@include media("<=desktop") {
+		object-fit: contain;
+	}
 }

@@ -7,10 +7,10 @@ export type NavItemClass = {
     link: string;
 }
 
-const NavItem = ( { item, i, active }: { item: NavItemClass, i: number, active: boolean } ) => {
+const NavItem = ({ item, i, active }: { item: NavItemClass, i: number, active: boolean }) => {
 
     return (
-        <Link to={item.link} className={active ? 'active' : ''} key={`navItem-${ i }`}>
+        <Link to={item.link} className={ `underline-hover ${ active ? 'active' : '' } ` } key={`navItem-${ i }`}>
             <h5 className={"nav-item"}>
                 <i className={`${ item.icon }`}></i>
                 {item.title}

@@ -23,11 +23,11 @@ const navItems: NavItemClass[] = [
         title: "Portfolio",
         icon:  "fa-regular fa-address-book",
     },
-    {
-        link:  "/contact",
-        title: "Contact",
-        icon:  "fa-regular fa-envelope",
-    },
+    // {
+    //     link:  "/contact",
+    //     title: "Contact",
+    //     icon:  "fa-regular fa-envelope",
+    // },
 ];
 
 const Sidenav = () => {
@@ -53,10 +53,8 @@ const Sidenav = () => {
                 <SiteHeader headerClass={"desktop-header"}/>
                 <NavItems navItems={Object.values(navItems)} activePage={activePage} />
             </div>
-            <div className={"nav-actions"}>
-                <span className={`nav-toggle`} onClick={toggleSidenav}>
-                    <i className={`fa-solid fa-${ sidenavState ? "down-left-and-up-right-to-center" : "bars" }`}></i>
-                </span>
+            <div className={`nav-toggle`} onClick={toggleSidenav}>
+                <i className={`fa-solid fa-${ sidenavState ? "down-left-and-up-right-to-center" : "bars" }`}></i>
             </div>
         </div>
     );

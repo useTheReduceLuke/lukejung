@@ -2,36 +2,10 @@
 @import '../../App';
 @import '../../styles/effects/parallax';
 
-.list-item {
-	font-size: 3rem;
-	padding-bottom: 2rem;
-
-	&:first-letter {
-		text-transform: capitalize;
-	}
-}
-
-.about {
-	display: block;
-	width: 100%;
+.about-container {
 	height: 100%;
-	text-align: left;
-	gap: 2rem;
-	max-width: $screen-lg;
-}
-
-.about-item {
-	display: flex;
-	flex-direction: column;
-	gap: 2rem;
-	align-items: flex-start;
-}
-
-.text-container {
-	flex: 1;
-}
-
-.image-container {
 	width: 100%;
-	max-height: min(30vw, 350px);
+	position: relative;
+	display: block;
+	z-index: 1;
 }

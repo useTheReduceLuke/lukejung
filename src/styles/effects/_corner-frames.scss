@@ -1,0 +1,120 @@
+@import "../theme/theme";
+
+.corner-frames {
+
+	@include themed() {
+		border: 1px solid t("text-primary");
+	}
+
+	display: flex;
+	text-align: center;
+	align-items: center;
+	justify-content: center;
+
+	font-family: 'Cinzel', serif;
+	font-size: 20px;
+	cursor: pointer;
+	-webkit-tap-highlight-color: transparent;
+	position: relative;
+	z-index: 0;
+	transition: 0.3s;
+
+	&:hover {
+		.corner-frames-content {
+			@include themed() {
+				background-color: rgba(t('bg-inverse'), 0.1);
+			}
+		}
+	}
+
+	.corner-frames-content {
+		-webkit-touch-callout: none;
+		-webkit-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
+
+		width: 100%;
+		height: 100%;
+		transition: 0.2s;
+		transition-delay: 0.1s;
+		padding: 1rem 2rem;
+
+	}
+}
+
+.corner-frames::before, .corner-frames::after {
+
+	@include themed() {
+		background: t('bg');
+	}
+	position: absolute;
+	z-index: -1;
+	transition: 0.3s;
+	content: '';
+}
+
+.corner-frames::before {
+	height: calc(100% + 2px);
+	width: calc(100% - 2px);
+}
+
+.corner-frames::after {
+	width: calc(100% + 2px);
+	height: calc(100% - 2px);
+}
+
+.corner-frames:hover::before {
+	width: 0;
+}
+
+.corner-frames:hover::after {
+	height: 0;
+}
+
+
+.right-corner-frame {
+	position: relative;
+	display: inline-block;
+	padding: 10px 20px;
+	font-size: 18px;
+	font-weight: bold;
+	color: #fff;
+	border: none;
+	cursor: pointer;
+	overflow: hidden;
+	width: max-content;
+}
+
+.right-corner-frame:before,
+.right-corner-frame:after {
+	content: "";
+	position: absolute;
+	width: 0;
+	height: 2px;
+	background-color: #fff;
+	transition: all 0.5s ease;
+}
+
+.right-corner-frame:before {
+	bottom: 0; /* updated position to come from bottom left corner */
+	left: 0;
+}
+
+.right-corner-frame:after {
+	top: 0;
+	right: 0; /* updated position to come from top right corner */
+}
+
+.right-corner-frame:hover:before,
+.right-corner-frame:hover:after {
+	width: 100%;
+}
+
+.right-corner-frame:hover:before {
+	transition-delay: 0.2s;
+}
+
+.right-corner-frame:hover:after {
+	transition-delay: 0.2s;
+}

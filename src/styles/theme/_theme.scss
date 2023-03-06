@@ -22,8 +22,6 @@ $text--sidenav-light: #F43F5E;
 $text--sidenav-dark: #F43F5E;
 $text--imp--light: #242D30;
 $text--imp--dark: #E8E4E0;
-$text--2--light: #F43F5E;
-$text--2--dark: #F43F5E;
 
 $bg-gradient-light:  linear-gradient(-75deg, $lighter-purple, $light-purple);
 $bg-gradient-dark:  linear-gradient(-75deg, $dark-purple, $darker-purple);
@@ -38,7 +36,7 @@ $themes: (
 				bg-inverse-opacity: rgba($bg--dark, 0.5),
 				text: $text--light,
 				text-primary: $text--imp--light,
-				text-sidenav: $text--2--light,
+				text-sidenav: $text--sidenav-light,
 		),
 		night: (
 				bg: $bg--dark,
@@ -48,7 +46,7 @@ $themes: (
 				bg-inverse-opacity: rgba($bg--light, 0.2),
 				text: $text--dark,
 				text-primary: $text--imp--dark,
-				text-sidenav: $text--2--dark,
+				text-sidenav: $text--sidenav-dark,
 		),
 );
 

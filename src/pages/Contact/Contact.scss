@@ -1,0 +1,9 @@
+@import "../../styles/effects/corner-frames";
+
+.list {
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+	width: 100%;
+	height: 100%;
+}

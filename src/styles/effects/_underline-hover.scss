@@ -1,7 +1,7 @@
 @import "../theme/theme";
 @import "../include-media";
 
-a {
+a.underline-hover {
 	@include themed() {
 		color: t('text');
 	}
@@ -35,7 +35,7 @@ a {
 	}
 }
 
-a:after {
+a.underline-hover:after {
 	@include themed() {
 		border-bottom: solid 2px t('text');
 	}

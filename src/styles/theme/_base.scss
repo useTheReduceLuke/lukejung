@@ -1,14 +1,8 @@
-@import "theme-constants";
+@import "theme";
 $page-padding-mobile: 10px;
 
 //loading
 .app {
-	text-align: center;
-}
-
-.loading {
-	color: $text--dark;
-	margin-top: calc(50vh - 20px);
 	text-align: center;
 }
 
@@ -36,17 +30,10 @@ html, body {
 		color: #fff;
 	}
 
-	@media (max-width: $screen-md-max) {
-		font-size: $font-size--base--mobile;
-		line-height: $font-size--base--mobile * 1.5;
-
-		p {
-			font-size: $font-size--base--mobile;
-		}
-	}
-
 	a {
-		-webkit-tap-highlight-color: #a5234b63;
+		-webkit-tap-highlight-color: #ffffff10;
+		color: #8ab6d6;
+
 		&:hover {
 			text-decoration: none;
 		}
@@ -80,25 +67,6 @@ div, button, span {
 			background: t($bg);
 		}
 	}
-
-	&__page {
-		margin: 0 auto;
-		min-height: 100vh;
-		padding: $spacer--default (120px) $spacer--large;
-
-		&:after {
-			content: "";
-			display: block;
-		}
-
-		@media (max-width: $screen-md-max) {
-			padding: $spacer--large;
-		}
-
-		@media (max-width: $screen-xs-max) {
-			padding: 0 $spacer--medium $spacer--medium;
-		}
-	}
 }
 
 .title {
@@ -121,23 +89,6 @@ div, button, span {
 .body, .navbar.header {
 	@media (max-width: $screen-md-max) {
 		padding: $spacer--smallest 0;
-	}
-}
-
-.spacer {
-	display: block;
-	width: 100%;
-
-	&--default {
-		height: $spacer--default;
-	}
-
-	&--smallest {
-		height: $spacer--smallest;
-	}
-
-	&--small {
-		height: $spacer--small;
 	}
 }
 
