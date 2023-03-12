@@ -4,11 +4,10 @@ import * as React from "react";
 import Sidenav from "./components/Navigation/Sidenav/Sidenav";
 import Router from "./components/Navigation/Router/Router";
 import { useStateStore } from "./shared/services/state.store";
-import SiteHeader from "./components/Navigation/Sidenav/SiteHeader/SiteHeader";
+import SiteHeader from "./components/Navigation/SiteHeader/SiteHeader";
 
 const Layout = () => {
 
-    // @ts-ignore
     const theme = useStateStore((state) => state.theme);
 
     return (

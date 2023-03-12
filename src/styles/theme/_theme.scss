@@ -8,7 +8,7 @@ $bg-opacity: 'bg-opacity';
 $bg-gradient: 'card-bg-gradient';
 $text: 'text';
 $text-primary: 'text-primary';
-$text-sidenav: 'text-sidenav';
+$text-secondary: 'text-secondary';
 $border: 'border';
 
 $bg--light: #FFF;
@@ -23,6 +23,9 @@ $text--sidenav-dark: #F43F5E;
 $text--imp--light: #242D30;
 $text--imp--dark: #E8E4E0;
 
+$text--link--dark: #8ab6d6;
+$text--link--light: #8ab6d6;
+
 $bg-gradient-light:  linear-gradient(-75deg, $lighter-purple, $light-purple);
 $bg-gradient-dark:  linear-gradient(-75deg, $dark-purple, $darker-purple);
 
@@ -36,7 +39,7 @@ $themes: (
 				bg-inverse-opacity: rgba($bg--dark, 0.5),
 				text: $text--light,
 				text-primary: $text--imp--light,
-				text-sidenav: $text--sidenav-light,
+				text-secondary: $text--sidenav-light,
 		),
 		night: (
 				bg: $bg--dark,
@@ -46,7 +49,7 @@ $themes: (
 				bg-inverse-opacity: rgba($bg--light, 0.2),
 				text: $text--dark,
 				text-primary: $text--imp--dark,
-				text-sidenav: $text--sidenav-dark,
+				text-secondary: $text--sidenav-dark,
 		),
 );
 

@@ -6,7 +6,7 @@ import * as React from "react";
 function Home() {
 
     return (
-        <div className="content">
+        <div className="home-content">
             <h1>Welcome!</h1>
             <div>I&apos;m Luke!</div>
             <div>Well, Luke&apos;s website. But I can get you to some info <Link to={"/about"} className={"link"}>about</Link> him</div>

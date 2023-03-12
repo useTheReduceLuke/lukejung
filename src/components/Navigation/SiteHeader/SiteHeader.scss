@@ -1,5 +1,5 @@
-@import "../../../../styles/theme/theme";
-@import "../../../../styles/include-media";
+@import "../../../styles/theme/theme";
+@import "../../../styles/include-media";
 
 .site-header {
 	display: flex;
@@ -14,10 +14,7 @@
 .website-title {
 	display: flex;
 	justify-content: center;
-	padding: 0.5rem 1rem;
-	background-color: #00000080;
-	backdrop-filter: blur(4px);
-	border-radius: 4px;
+	cursor: pointer;
 }
 
 .first-name {
@@ -28,7 +25,7 @@
 
 .last-name {
 	@include themed() {
-		color: t('text-sidenav');
+		color: t('text-secondary');
 	}
 }
 

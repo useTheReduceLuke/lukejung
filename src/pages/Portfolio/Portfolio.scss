@@ -9,6 +9,8 @@
 	overflow-x: hidden;
 	display: flex;
 	flex-direction: column;
+	align-items: center;
+	gap: 4rem;
 }
 
 .parallax-item {
@@ -16,11 +18,13 @@
 }
 
 .parallax-text {
-	align-items: flex-end;
 
 	.text-liner {
-		background-color: rgba(black, 0.8);
 		backdrop-filter: blur(4px);
+		@include themed() {
+			background-color: rgba(t('bg'), 0.8);
+			color: t('text-primary');
+		}
 	}
 }
 
@@ -31,6 +35,8 @@
 	justify-content: center;
 	padding: 8rem 2rem 4rem 2rem;
 	gap: 3rem;
+	height: 80% !important;
+	min-height: 80% !important;
 }
 
 .github {
@@ -46,8 +52,7 @@
 		overflow: hidden;
 
 		&:hover {
-			width: 25rem;
-			height: 25rem;
+			transform: scale(1.1);
 		}
 
 		img {
@@ -59,16 +64,18 @@
 }
 
 .portfolio-item {
-	min-height: 80%;
-	height: 100%;
+	height: max-content;
+	min-height: max-content;
 	width: 100%;
+	max-width: 1200px;
 	display: flex;
+	text-align: center;
 
-		img {
-			width: 100%;
-			height: auto;
-			object-fit: contain;
-		}
+	img {
+		width: 100%;
+		height: auto;
+		object-fit: contain;
+	}
 }
 
 p {

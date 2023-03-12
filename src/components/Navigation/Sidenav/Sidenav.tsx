@@ -1,7 +1,7 @@
 import "./Sidenav.scss";
 import * as React from "react";
 import { useEffect, useState } from "react";
-import SiteHeader from "./SiteHeader/SiteHeader";
+import SiteHeader from "../SiteHeader/SiteHeader";
 import NavItems from "./NavItems/NavItems";
 import { NavItemClass } from "./NavItems/NavItem";
 import { useLocation } from "react-router-dom";
@@ -11,7 +11,7 @@ const navItems: NavItemClass[] = [
     {
         link:  "/",
         title: "Home",
-        icon:  "fa-solid fa-house-chimney",
+        icon:  "fa-solid fa-person-shelter",
     },
     {
         link:  "/about",
@@ -23,19 +23,46 @@ const navItems: NavItemClass[] = [
         title: "Portfolio",
         icon:  "fa-regular fa-address-book",
     },
-    // {
-    //     link:  "/contact",
-    //     title: "Contact",
-    //     icon:  "fa-regular fa-envelope",
-    // },
+    {
+        link:  "/experimental",
+        title: "Experimental",
+        icon:  "fa-solid fa-person-through-window",
+    },
 ];
+
+const ThemeButton = () => {
+
+    const advanceTheme =
+        useStateStore((state) => state.advanceTheme);
+
+    const changeTheme = (event: any) => {
+        advanceTheme();
+        event.stopPropagation();
+    };
+    const themeState = useStateStore(state => state.theme);
+
+    return (
+        <div className={`theme-button`} onClick={changeTheme}>
+            <i className={`fa-solid fa-${ themeState.icon }`}/>
+        </div>
+    );
+
+};
+
+const ActionButtons = ({ sidenavState }: {sidenavState: boolean}) => {
+    return (
+
+        <div className={`action-buttons ${ sidenavState ? "expanded" : "collapsed" }`}>
+            <ThemeButton/>
+        </div>
+    );
+};
 
 const Sidenav = () => {
 
     const location = useLocation();
     const [ activePage, setActivePage ] = useState(0);
 
-    // @ts-ignore
     const toggleSidenav =
         useStateStore((state) => state.toggleSidenav);
 
@@ -49,10 +76,14 @@ const Sidenav = () => {
 
     return (
         <div className={`sidenav ${ sidenavState ? "expanded" : "collapsed" }`}>
-            <div className={"nav-items"} onClick={toggleSidenav}>
+            <div className={"nav-items"}>
+
                 <SiteHeader headerClass={"desktop-header"}/>
                 <NavItems navItems={Object.values(navItems)} activePage={activePage} />
+
+                <ActionButtons sidenavState={sidenavState}></ActionButtons>
             </div>
+
             <div className={`nav-toggle`} onClick={toggleSidenav}>
                 <i className={`fa-solid fa-${ sidenavState ? "down-left-and-up-right-to-center" : "bars" }`}></i>
             </div>

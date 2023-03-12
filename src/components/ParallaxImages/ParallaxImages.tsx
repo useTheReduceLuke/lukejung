@@ -1,12 +1,13 @@
 
 import * as React from "react";
 import "./ParallaxImages.scss";
-import { ParallaxBanner, ParallaxProvider } from "react-scroll-parallax";
+import { ParallaxBanner, ParallaxBannerLayer, ParallaxProvider } from "react-scroll-parallax";
 import { useEffect, useRef, useState } from "react";
 import { debounce, isString } from "lodash";
 
 export interface ParallaxOptions {
-    image?: any,
+    image: any,
+    text?: string,
     speed?: number,
     opacity?: [number, number],
     scale?: [number, number],
@@ -64,16 +65,23 @@ const getBannerSpeed = (size: number, speed = -20) => {
 
 
 const ParallaxItem = (
-    { parallax, dimensions, textItem }:
-        {parallax: ParallaxOptions, dimensions: any, textItem: string},
+    { parallax, dimensions }:
+        {parallax: ParallaxOptions, dimensions: any},
 ) => {
 
     if (dimensions?.width && dimensions.height) {
         return (<div className={ "parallax-item" }>
             <ParallaxBanner
-                layers={[{ ...parallax, speed: getBannerSpeed(dimensions.width, parallax.speed) }]}
+                layers={[
+                    { ...parallax, speed: getBannerSpeed(dimensions.width, parallax.speed) },
+                    {
+                        translateY: [ 30, -30 ],
+                        children:   (
+                            <ImageInfo text={parallax.text ?? ''}></ImageInfo>
+                        ),
+                    },
+                ]}
                 style={ getBannerStyle(dimensions.width) }>
-                <ImageInfo text={textItem}/>
             </ParallaxBanner>
         </div>);
     }
@@ -81,8 +89,8 @@ const ParallaxItem = (
 };
 
 const ParallaxImages = (
-    { parallaxArray, textArray }:
-        { parallaxArray: ParallaxOptions[], textArray: string[], children?: any} = { parallaxArray: [], textArray: [] },
+    { parallaxArray }:
+        { parallaxArray: ParallaxOptions[], children?: any} = { parallaxArray: [] },
 ) => {
 
     const ref = useRef(null);
@@ -91,8 +99,11 @@ const ParallaxImages = (
     const [ dimensions, setDimensions ] = useState({ width: 0, height: 0 });
 
     useEffect(() => {
+        console.log(newDimensions);
         setDimensions(newDimensions);
     });
+
+    console.log(parallaxArray);
 
     return (
         <div className={"parallax-container"} ref={ref}>
@@ -103,8 +114,7 @@ const ParallaxImages = (
                             <ParallaxItem
                                 key={`parallax-${ index }`}
                                 parallax={parallax}
-                                dimensions={dimensions}
-                                textItem={textArray[ index ]}/>
+                                dimensions={dimensions}/>
                         );
                     })
                 }

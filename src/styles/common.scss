@@ -1,5 +1,5 @@
 @import 'theme/theme';
-@import 'theme/base';
+@import 'base';
 @import 'include-media';
 
 @import 'font';
@@ -11,10 +11,11 @@
 	display: flex;
 	justify-content: flex-start;
 	z-index: 1;
+	position: relative;
 }
 
 .image-container {
-	width: 100%;
+	width: 100vw;
 	height: 100%;
 	position: fixed;
 	bottom: 0;
@@ -37,6 +38,7 @@
 
 .page-container {
 	display: block;
+	width: 100%;
 
 	@include media(">desktop") {
 		width: calc(100% - #{$title-block-width});
@@ -45,11 +47,6 @@
 
 	@include themed() {
 		color: t('text');
-	}
-
-	@include media("<=desktop") {
-		flex-direction: column;
-		position: relative;
 	}
 }
 

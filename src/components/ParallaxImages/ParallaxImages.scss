@@ -30,16 +30,12 @@
 			position: absolute;
 			z-index: 2;
 
-			@include media("<=desktop") {
-				align-items: flex-end;
-				padding-bottom: 4rem;
-			}
-
 			.text-liner {
 				width: 100%;
 				height: max-content;
 				padding: 2rem;
 				background-color: rgba(black, 0.5);
+
 			}
 		}
 	}

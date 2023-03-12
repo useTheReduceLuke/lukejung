@@ -1,4 +1,4 @@
-@import "theme";
+@import "theme/theme";
 $page-padding-mobile: 10px;
 
 //loading
@@ -20,10 +20,6 @@ html, body {
 	p {
 		white-space: pre-line;
 		font-size: $font-size--base;
-
-		@include themed() {
-			color: t($text);
-		}
 	}
 
 	::selection {
@@ -32,11 +28,6 @@ html, body {
 
 	a {
 		-webkit-tap-highlight-color: #ffffff10;
-		color: #8ab6d6;
-
-		&:hover {
-			text-decoration: none;
-		}
 	}
 }
 
