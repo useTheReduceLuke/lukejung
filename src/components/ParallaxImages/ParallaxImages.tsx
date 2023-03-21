@@ -1,7 +1,7 @@
 
 import * as React from "react";
 import "./ParallaxImages.scss";
-import { ParallaxBanner, ParallaxBannerLayer, ParallaxProvider } from "react-scroll-parallax";
+import { ParallaxBanner } from "react-scroll-parallax";
 import { useEffect, useRef, useState } from "react";
 import { debounce, isString } from "lodash";
 
@@ -99,26 +99,21 @@ const ParallaxImages = (
     const [ dimensions, setDimensions ] = useState({ width: 0, height: 0 });
 
     useEffect(() => {
-        console.log(newDimensions);
         setDimensions(newDimensions);
     });
 
-    console.log(parallaxArray);
-
     return (
         <div className={"parallax-container"} ref={ref}>
-            <ParallaxProvider>
-                {
-                    parallaxArray.map((parallax, index) => {
-                        return (
-                            <ParallaxItem
-                                key={`parallax-${ index }`}
-                                parallax={parallax}
-                                dimensions={dimensions}/>
-                        );
-                    })
-                }
-            </ParallaxProvider>
+            {
+                parallaxArray.map((parallax, index) => {
+                    return (
+                        <ParallaxItem
+                            key={`parallax-${ index }`}
+                            parallax={parallax}
+                            dimensions={dimensions}/>
+                    );
+                })
+            }
         </div>
     );
 };

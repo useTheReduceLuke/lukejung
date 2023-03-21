@@ -1,0 +1,45 @@
+
+@import "../../../styles/theme/theme";
+
+$large-size: 24rem;
+$medium-size: 12rem;
+$small-size: 6rem;
+$icon-size: 4rem;
+
+.link-button {
+	cursor: pointer;
+
+	width: $icon-size;
+	height: $icon-size;
+	font-size: $icon-size;
+
+	transition: 0.1s ease;
+
+	&.large {
+		margin: 3rem;
+		width: $large-size;
+		height: $large-size;
+		font-size: $large-size;
+		border-radius: 1rem;
+	}
+
+	&.medium {
+		width: $medium-size;
+		height: $medium-size;
+		font-size: $medium-size;
+	}
+
+	i {
+		border-radius: 4px;
+		transition: transform 0.3s ease, color 0.1s ease;
+		overflow: hidden;
+		width: 100%;
+		height: 100%;
+		font-size: inherit;
+		object-fit: cover;
+
+		&:hover {
+			transform: scale(1.1);
+		}
+	}
+}

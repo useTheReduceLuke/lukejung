@@ -43,7 +43,9 @@ const parallaxArray: ParallaxOptions[] = [
 ];
 
 const About = () => (
-    <ParallaxImages parallaxArray={parallaxArray}/>
+    <div className={"about-container"}>
+        <ParallaxImages parallaxArray={parallaxArray}/>
+    </div>
 );
 
 export default About;

@@ -41,8 +41,7 @@
 	width: 100%;
 
 	@include media(">desktop") {
-		width: calc(100% - #{$title-block-width});
-		margin-left: $title-block-width;
+		margin-left: $sidenav-width;
 	}
 
 	@include themed() {

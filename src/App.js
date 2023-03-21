@@ -1,7 +1,18 @@
 import "./App.scss";
 import React, { useEffect, useState } from "react";
 import Layout from "Layout";
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter, useLocation } from "react-router-dom";
+import { ParallaxProvider } from "react-scroll-parallax";
+
+const ScrollToTop = () => {
+    const { pathname } = useLocation();
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [ pathname ]);
+
+    return null;
+};
 
 const App = () => {
 
@@ -30,7 +41,10 @@ const App = () => {
 
     return (
         <BrowserRouter>
-            <Layout/>
+            <ParallaxProvider>
+                <ScrollToTop/>
+                <Layout/>
+            </ParallaxProvider>
         </BrowserRouter>
     );
 };

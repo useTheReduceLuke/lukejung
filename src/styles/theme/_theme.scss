@@ -11,6 +11,9 @@ $text-primary: 'text-primary';
 $text-secondary: 'text-secondary';
 $border: 'border';
 
+$day--bool: 1;
+$night--bool: 0;
+
 $bg--light: #FFF;
 $bg--dark: #000;
 $bg--light-opacity: #FFFFFF85;
@@ -40,6 +43,7 @@ $themes: (
 				text: $text--light,
 				text-primary: $text--imp--light,
 				text-secondary: $text--sidenav-light,
+				bool: $day--bool,
 		),
 		night: (
 				bg: $bg--dark,
@@ -50,6 +54,7 @@ $themes: (
 				text: $text--dark,
 				text-primary: $text--imp--dark,
 				text-secondary: $text--sidenav-dark,
+				bool: $night--bool,
 		),
 );
 

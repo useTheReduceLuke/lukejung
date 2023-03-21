@@ -1,6 +1,8 @@
 @import "../../../styles/theme/theme";
 @import "../../../styles/include-media";
 
+$header-font-size: 30px;
+
 .site-header {
 	display: flex;
 	justify-content: center;
@@ -18,12 +20,14 @@
 }
 
 .first-name {
+	font-size: $header-font-size;
 	@include themed() {
 		color: t('text');
 	}
 }
 
 .last-name {
+	font-size: $header-font-size;
 	@include themed() {
 		color: t('text-secondary');
 	}

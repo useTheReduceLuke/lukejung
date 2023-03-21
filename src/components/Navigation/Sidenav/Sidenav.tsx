@@ -6,6 +6,7 @@ import NavItems from "./NavItems/NavItems";
 import { NavItemClass } from "./NavItems/NavItem";
 import { useLocation } from "react-router-dom";
 import { useStateStore } from "../../../shared/services/state.store";
+import { GitHubButton, LinkedInButton } from "../../buttons/LinkButtons/LinkButtons";
 
 const navItems: NavItemClass[] = [
     {
@@ -46,13 +47,14 @@ const ThemeButton = () => {
             <i className={`fa-solid fa-${ themeState.icon }`}/>
         </div>
     );
-
 };
 
 const ActionButtons = ({ sidenavState }: {sidenavState: boolean}) => {
     return (
 
         <div className={`action-buttons ${ sidenavState ? "expanded" : "collapsed" }`}>
+            <GitHubButton/>
+            <LinkedInButton/>
             <ThemeButton/>
         </div>
     );

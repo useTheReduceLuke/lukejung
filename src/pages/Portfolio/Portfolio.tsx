@@ -2,29 +2,13 @@
 import * as React from "react";
 import "./Portfolio.scss";
 import portfolioImages from "../../images/portfolio/portfolioImages";
-// @ts-ignore
-import github from "../../images/portfolio/github.png";
+import { GitHubButton } from "../../components/buttons/LinkButtons/LinkButtons";
 import { LazyLoadImage } from "react-lazy-load-image-component";
-const Github = () => {
-
-    const openLink = () => {
-        window.open(
-            "https://github.com/useTheReduceLuke/lukejung", "_blank");
-    };
-
-    return (
-        <div className={ "github" } onClick={ () => openLink() }>
-            <div className={ "github-image" }>
-                <LazyLoadImage src={ github }/>
-            </div>
-        </div>
-    );
-};
 
 const Header = () => (
     <div className={"header portfolio-item"}>
         <div>Check out my Github!</div>
-        <Github/>
+        <GitHubButton className={"large"}/>
         <p>I&lsquo;ve also included samples of my Figma design work below!</p>
     </div>
 );

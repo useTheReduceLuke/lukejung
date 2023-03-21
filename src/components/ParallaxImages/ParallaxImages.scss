@@ -22,7 +22,7 @@
 	.parallax-item {
 		@extend .parallax-base;
 
-		margin: 4rem 0;
+		margin: 4rem auto;
 
 		.parallax-text {
 			@extend .parallax-base;
@@ -34,8 +34,6 @@
 				width: 100%;
 				height: max-content;
 				padding: 2rem;
-				background-color: rgba(black, 0.5);
-
 			}
 		}
 	}

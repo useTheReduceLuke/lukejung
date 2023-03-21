@@ -1,0 +1,15 @@
+
+.game-container {
+	background: black;
+	width: 400px;
+	height: 400px;
+	position: relative;
+}
+
+.enemy {
+	width: 10px;
+	height: 10px;
+	background: white;
+	display: flex;
+	position: absolute;
+}
